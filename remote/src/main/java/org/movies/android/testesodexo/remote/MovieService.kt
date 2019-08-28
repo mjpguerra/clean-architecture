@@ -6,8 +6,9 @@ import org.movies.android.testesodexo.remote.model.MovieModel
 import retrofit2.http.GET
 
 /**
- * Defines the abstract methods used for interacting with the Movie API
- */
+ * Define os métodos abstratos usados ​​para interagir com a API do Movie
+ */
+
 interface MovieService {
 
     @GET("movies/popular")

@@ -12,9 +12,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 /**
- * Provide "make" methods to create instances of [MovieService]
- * and its related dependencies, such as OkHttpClient, Gson, etc.
- */
+ * Fornecer métodos "make" para criar instâncias de [MovieService]
+ * e suas dependências relacionadas, como OkHttpClient, Gson, etc.
+ */
 object MovieServiceFactory {
 
     fun makeBuffeoorService(isDebug: Boolean): MovieService {

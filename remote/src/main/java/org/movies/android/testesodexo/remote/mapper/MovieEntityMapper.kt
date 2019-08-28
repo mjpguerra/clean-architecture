@@ -7,14 +7,14 @@ import java.security.MessageDigest
 import java.util.*
 
 /**
- * Map a [MovieModel] to and from a [Movie] instance when data is moving between
- * this later and the Data layer
- */
+ * Mapear um [MovieModel] para e de uma instância [Movie] quando os dados estiverem se movendo entre
+ * isso mais tarde e a camada de dados
+ */
 open class MovieEntityMapper : EntityMapper<MovieModel, Movie> {
 
     /**
-     * Map an instance of a [MovieModel] to a [Movie] model
-     */
+     * Mapear uma instância de um [MovieModel] para um modelo [Movie]
+     */
     override fun mapFromRemote(type: MovieModel): Movie {
         return Movie(generateId(), type.nomeFilme, type.ano, "")
     }

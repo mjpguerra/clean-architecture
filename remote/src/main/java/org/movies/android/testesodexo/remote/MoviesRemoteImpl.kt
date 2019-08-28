@@ -8,15 +8,15 @@ import org.movies.android.testesodexo.data.source.MoviesDataStore
 import org.movies.android.testesodexo.remote.mapper.MovieEntityMapper
 
 /**
- * Remote implementation for retrieving Movie instances. This class implements the
- * [MovieRemote] from the Data layer as it is that layers responsibility for defining the
- * operations in which data store implementation layers can carry out.
- */
+ * Implementação remota para recuperar instâncias do filme. Esta classe implementa o
+ * [MovieRemote] da camada de dados, pois é a responsabilidade de camadas para definir o
+ * operações nas quais as camadas de implementação do armazenamento de dados podem ser executadas.
+ */
 class MoviesRemoteImpl constructor(private val MovieService: MovieService, private val entityMapper: MovieEntityMapper) :MoviesDataStore {
 
     /**
-     * Retrieve a list of [Movie] instances from the [MovieService].
-     */
+     * Recupere uma lista de instâncias de [Movie] do [MovieService].
+     */
     override fun getMovies(): Flowable<List<Movie>> {
         return MovieService.getMovies()
                 .map {
