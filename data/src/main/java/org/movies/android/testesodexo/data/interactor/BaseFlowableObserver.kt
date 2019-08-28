@@ -4,7 +4,7 @@ import io.reactivex.SingleObserver
 import io.reactivex.disposables.Disposable
 
 /**
- * Default [SingleObserver] base class to define
+ * Classe base [SingleObserver] padrão para definir
  */
 open class BaseFlowableObserver<T> : SingleObserver<T> {
 

@@ -3,10 +3,10 @@ package org.movies.android.testesodexo.data.executor
 import io.reactivex.Scheduler
 
 /**
- * Thread abstraction created to change the execution context from any thread to any other thread.
- * Useful to encapsulate a UI Thread for example, since some job will be done in background, an
- * implementation of this interface will change context and update the UI.
- */
+ * Abstração de thread criada para alterar o contexto de execução de qualquer thread para qualquer outro thread.
+ * Útil para encapsular um thread de interface do usuário, por exemplo, uma vez que algum trabalho será feito em background, um
+ * A implementação desta interface mudará o contexto e atualizará a interface do usuário.
+ */
 interface PostExecutionThread {
     val scheduler: Scheduler
 }

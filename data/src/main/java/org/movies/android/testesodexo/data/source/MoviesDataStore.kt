@@ -6,10 +6,10 @@ import io.reactivex.Single
 import org.movies.android.testesodexo.data.movies.Movie
 
 /**
- * Interface defining methods for the data operations related to moviesroos.
- * This is to be implemented by external data source layers, setting the requirements for the
- * operations that need to be implemented
- */
+ * Métodos de definição de interface para as operações de dados relacionadas a filmes.
+ * Isso deve ser implementado por camadas de fontes de dados externas, definindo os requisitos para o
+ * operações que precisam ser implementadas
+ */
 interface MoviesDataStore {
 
     fun clearMovies(): Completable

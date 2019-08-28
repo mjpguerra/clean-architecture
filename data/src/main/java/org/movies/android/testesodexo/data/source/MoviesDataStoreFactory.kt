@@ -1,16 +1,16 @@
 package org.movies.android.testesodexo.data.source
 
 /**
- * Create an instance of a MoviesDataStore
+ * Crie uma instância de uma MoviesDataStore
  */
 open class MoviesDataStoreFactory(
         private val moviesCacheDataStore: MoviesDataStore,
         private val moviesRemoteDataStore: MoviesDataStore) {
 
     /**
-     * Returns a DataStore based on whether or not there is content in the cache and the cache
-     * has not expired
-     */
+     * Retorna um DataStore com base em se há ou não conteúdo no cache e no cache
+     * não expirou
+     */
     open fun retrieveDataStore(isCached: Boolean): MoviesDataStore {
         if (isCached && !moviesCacheDataStore.isExpired()) {
             return retrieveCacheDataStore()
@@ -19,14 +19,14 @@ open class MoviesDataStoreFactory(
     }
 
     /**
-     * Return an instance of the Cache Data Store
+     * Retornar uma instância do armazenamento de dados de cache
      */
     open fun retrieveCacheDataStore(): MoviesDataStore {
         return moviesCacheDataStore
     }
 
     /**
-     * Return an instance of the Remote Data Store
+     * Retornar uma instância do armazenamento de dados remoto
      */
     open fun retrieveRemoteDataStore(): MoviesDataStore {
         return moviesRemoteDataStore

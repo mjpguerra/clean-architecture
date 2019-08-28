@@ -8,7 +8,7 @@ import org.movies.android.testesodexo.data.executor.PostExecutionThread
 import org.movies.android.testesodexo.data.executor.ThreadExecutor
 
 /**
- * Abstract class for a UseCase that returns an instance of a [Completable].
+ * Classe abstrata para um UseCase que retorna uma instância de um [Completable].
  */
 abstract class CompletableUseCase<in Params> protected constructor(
         private val threadExecutor: ThreadExecutor,
@@ -17,12 +17,12 @@ abstract class CompletableUseCase<in Params> protected constructor(
     private val subscription = Disposables.empty()
 
     /**
-     * Builds a [Completable] which will be used when the current [CompletableUseCase] is executed.
+     * Cria um [Completable] que será usado quando o atual [CompletableUseCase] ​​for executado.
      */
     protected abstract fun buildUseCaseObservable(params: Params): Completable
 
     /**
-     * Executes the current use case.
+     * Executa o caso de uso atual.
      */
     fun execute(params: Params): Completable {
         return this.buildUseCaseObservable(params)
@@ -31,7 +31,7 @@ abstract class CompletableUseCase<in Params> protected constructor(
     }
 
     /**
-     * Unsubscribes from current [Disposable].
+     *Anula a subscrição de [Disposable] atual.
      */
     fun unsubscribe() {
         if (!subscription.isDisposed) {

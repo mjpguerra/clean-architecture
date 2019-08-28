@@ -3,7 +3,7 @@ package org.movies.android.testesodexo.data.executor
 import java.util.concurrent.Executor
 
 /**
- * Executor implementation can be based on different frameworks or techniques of asynchronous
- * execution, but every implementation will execute the
- */
+ * Implementação executor pode ser baseado em diferentes estruturas ou técnicas de assíncrona
+ * execução, mas toda implementação executará o
+ */
 interface ThreadExecutor : Executor
