@@ -1,8 +1,9 @@
 package org.movies.android.testesodexo.cache.db.constants
 
+
 /**
- * Defines constants for the Movies Table
- */
+* Define constantes para a Tabela de Movies
+*/
 object MovieConstants {
 
     const val TABLE_NAME = "Movies"

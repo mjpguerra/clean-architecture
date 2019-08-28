@@ -4,22 +4,21 @@ import org.movies.android.testesodexo.cache.model.CachedMovie
 import org.movies.android.testesodexo.data.movies.Movie
 
 /**
- * Map a [CachedMovie] instance to and from a [Movie] instance when data is moving between
- * this later and the Data layer
- */
-open class MovieEntityMapper :
-        EntityMapper<CachedMovie, Movie> {
+ * Mapear uma instância [CachedMovie] de e para uma instância de [Movie] quando os dados estão se movendo entre
+ * isso mais tarde e a camada de dados
+ */
+open class MovieEntityMapper : EntityMapper<CachedMovie, Movie> {
 
     /**
-     * Map a [Movie] instance to a [CachedMovie] instance
-     */
+    * Mapear uma instância de [Movie] para uma instância de [CachedMovie]
+    */
     override fun mapToCached(type: Movie): CachedMovie {
         return CachedMovie(null, type.nomeFilme, type.ano, type.avatar)
     }
 
     /**
-     * Map a [CachedMovie] instance to a [Movie] instance
-     */
+     * Mapear uma instância de [CachedMovie] para uma instância de [Movie]
+     */
     override fun mapFromCached(type: CachedMovie): Movie {
         return Movie(null, type.name, type.title, type.avatar)
     }

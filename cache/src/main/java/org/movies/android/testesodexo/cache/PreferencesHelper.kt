@@ -3,9 +3,10 @@ package org.movies.android.testesodexo.cache
 import android.content.Context
 import android.content.SharedPreferences
 
+
 /**
- * General Preferences Helper class, used for storing preference values using the Preference API
- */
+* Classe auxiliar de preferências gerais, usada para armazenar valores de preferência usando a API de preferência
+*/
 open class PreferencesHelper(context: Context) {
 
     companion object {
@@ -20,9 +21,10 @@ open class PreferencesHelper(context: Context) {
         moviesPref = context.getSharedPreferences(PREF_movies_PACKAGE_NAME, Context.MODE_PRIVATE)
     }
 
+
     /**
-     * Store and retrieve the last time data was cached
-     */
+    * Armazene e recupere a última vez que os dados foram armazenados em cache
+    */
     var lastCacheTime: Long
         get() = moviesPref.getLong(PREF_KEY_LAST_CACHE, 0)
         set(lastCache) = moviesPref.edit().putLong(PREF_KEY_LAST_CACHE, lastCache).apply()

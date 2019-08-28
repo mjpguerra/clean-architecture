@@ -10,24 +10,24 @@ import org.movies.android.testesodexo.data.movies.Movie
 import org.movies.android.testesodexo.data.source.MoviesDataStore
 
 /**
- * Cached implementation for retrieving and saving Movie instances. This class implements the
- * [MovieCache] from the Data layer as it is that layers responsibility for defining the
- * operations in which data store implementation layers can carry out.
- */
+ * Implementação em cache para recuperar e salvar instâncias do Movie. Esta classe implementa o
+ * [MovieCache] da camada de dados, pois é a responsabilidade de camadas para definir o
+ * operações nas quais as camadas de implementação do armazenamento de dados podem ser executadas.
+ */
 class MoviesCacheImpl constructor(val MoviesDatabase: MoviesDatabase, private val entityMapper: MovieEntityMapper, private val preferencesHelper: PreferencesHelper) : MoviesDataStore {
 
     private val EXPIRATION_TIME = (60 * 10 * 1000).toLong()
 
     /**
-     * Retrieve an instance from the database, used for tests.
-     */
+     * Recupere uma instância do banco de dados, usada para testes.
+     */
     internal fun getDatabase(): MoviesDatabase {
         return MoviesDatabase
     }
 
     /**
-     * Remove all the data from all the tables in the database.
-     */
+     * Remova todos os dados de todas as tabelas no banco de dados.
+     */
     override fun clearMovies(): Completable {
         return Completable.defer {
             MoviesDatabase.cachedMovieDao().clearMovies()
@@ -36,8 +36,8 @@ class MoviesCacheImpl constructor(val MoviesDatabase: MoviesDatabase, private va
     }
 
     /**
-     * Save the given list of [Movie] instances to the database.
-     */
+     * Salve a lista dada de instâncias [Movie] no banco de dados.
+     */
     override fun saveMovies(Movies: List<Movie>): Completable {
         return Completable.defer {
             Movies.forEach {
@@ -49,8 +49,8 @@ class MoviesCacheImpl constructor(val MoviesDatabase: MoviesDatabase, private va
     }
 
     /**
-     * Retrieve a list of [Movie] instances from the database.
-     */
+     * Recupere uma lista de instâncias [Movie] do banco de dados.
+     */
     override fun getMovies(): Flowable<List<Movie>> {
         return Flowable.defer {
             Flowable.just(MoviesDatabase.cachedMovieDao().getMovies())
@@ -60,8 +60,8 @@ class MoviesCacheImpl constructor(val MoviesDatabase: MoviesDatabase, private va
     }
 
     /**
-     * Check whether there are instances of [CachedMovie] stored in the cache.
-     */
+     * Verifique se há instâncias de [CachedMovie] armazenadas no cache.
+     */
     override fun isCached(): Single<Boolean> {
         return Single.defer {
             Single.just(MoviesDatabase.cachedMovieDao().getMovies().isNotEmpty())
@@ -69,24 +69,25 @@ class MoviesCacheImpl constructor(val MoviesDatabase: MoviesDatabase, private va
     }
 
     /**
-     * Set a point in time at when the cache was last updated.
-     */
+     * Defina um ponto no tempo em que o cache foi atualizado pela última vez.
+     */
     override fun setLastCacheTime(lastCache: Long) {
         preferencesHelper.lastCacheTime = lastCache
     }
 
     /**
-     * Check whether the current cached data exceeds the defined [EXPIRATION_TIME] time.
-     */
+     * Verifique se os dados em cache atuais excedem o tempo definido de [EXPIRATION_TIME].
+     */
     override fun isExpired(): Boolean {
         val currentTime = System.currentTimeMillis()
         val lastUpdateTime = this.getLastCacheUpdateTimeMillis()
         return currentTime - lastUpdateTime > EXPIRATION_TIME
     }
 
+
     /**
-     * Get in millis, the last time the cache was accessed.
-     */
+    * Entre em millis, a última vez que o cache foi acessado.
+    */
     private fun getLastCacheUpdateTimeMillis(): Long {
         return preferencesHelper.lastCacheTime
     }

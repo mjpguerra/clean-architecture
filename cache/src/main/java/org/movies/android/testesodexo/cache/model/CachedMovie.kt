@@ -4,9 +4,10 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 import org.movies.android.testesodexo.cache.db.constants.MovieConstants
 
+
 /**
- * Model used solely for the caching of a movies
- */
+* Modelo usado apenas para o armazenamento em cache de MOVIE
+*/
 @Entity(tableName = MovieConstants.TABLE_NAME)
 data class CachedMovie(
 

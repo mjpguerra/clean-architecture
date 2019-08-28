@@ -1,15 +1,13 @@
 package org.movies.android.testesodexo.cache.db
 
-import android.arch.persistence.db.SupportSQLiteDatabase
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
-import android.arch.persistence.room.migration.Migration
 import android.content.Context
 import org.movies.android.testesodexo.cache.dao.CachedMovieDao
 import org.movies.android.testesodexo.cache.model.CachedMovie
 
-@Database(entities = arrayOf(CachedMovie::class), version = 2)
+@Database(entities = [CachedMovie::class], version = 2)
 abstract class MoviesDatabase : RoomDatabase() {
 
     abstract fun cachedMovieDao(): CachedMovieDao

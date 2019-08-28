@@ -8,7 +8,6 @@ import retrofit2.http.GET
 /**
  * Define os métodos abstratos usados ​​para interagir com a API do Movie
  */
-
 interface MovieService {
 
     @GET("movies/popular")
