@@ -14,4 +14,9 @@ interface MovieService {
     fun getMovies(): Flowable<List<MovieModel>>
 
     class MovieResponse
+
+
+
+
+
 }

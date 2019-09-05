@@ -45,6 +45,13 @@ android {
     buildToolsVersion '27.0.3'
 }
 
+
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+
 dependencies {
     def cacheDependencies = rootProject.ext.cacheDependencies
     def cacheTestDependencies = rootProject.ext.cacheTestDependencies
@@ -64,4 +71,7 @@ dependencies {
     testImplementation cacheTestDependencies.robolectric
     testImplementation cacheTestDependencies.archTesting
     testImplementation cacheTestDependencies.roomTesting
+    implementation 'com.github.liip:SweetPreferences:1.0.1'
+
+
 }

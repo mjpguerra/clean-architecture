@@ -1,6 +1,7 @@
 package org.movies.android.testesodexo.ui.di
 
 import android.arch.persistence.room.Room
+import ch.liip.sweetpreferences.SweetPreferences
 import org.movies.android.testesodexo.cache.MoviesCacheImpl
 import org.movies.android.testesodexo.cache.PreferencesHelper
 import org.movies.android.testesodexo.cache.db.MoviesDatabase
@@ -24,6 +25,7 @@ import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
 val applicationModule = module(override=true) {
+
 
     single { PreferencesHelper(androidContext()) }
 

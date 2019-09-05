@@ -20,7 +20,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class MoviesActivity: AppCompatActivity() {
 
-    val moviesAdapter: MoviesAdapter by inject()
+    private val moviesAdapter: MoviesAdapter by inject()
 
     val moviesViewModel: MoviesViewModel by viewModel()
 
@@ -49,7 +49,7 @@ class MoviesActivity: AppCompatActivity() {
         when (moviesState) {
             is MoviesState.Loading -> setupScreenForLoadingState()
             is MoviesState.Success -> setupScreenForSuccess(moviesState.data)
-            is MoviesState.Error -> setupScreenForError(moviesState.errorMessage)
+            is MoviesState.Error -> setupScreenForError()
         }
     }
 
@@ -71,12 +71,12 @@ class MoviesActivity: AppCompatActivity() {
         }
     }
 
-    private fun updateListView(Movies: List<Movie>) {
-        moviesAdapter.Movies = Movies
+    private fun updateListView(movies: List<Movie>) {
+        moviesAdapter.movies = movies
         moviesAdapter.notifyDataSetChanged()
     }
 
-    private fun setupScreenForError(message: String?) {
+    private fun setupScreenForError() {
         progress.visibility = View.GONE
         recycler_movies.visibility = View.GONE
         view_empty.visibility = View.GONE

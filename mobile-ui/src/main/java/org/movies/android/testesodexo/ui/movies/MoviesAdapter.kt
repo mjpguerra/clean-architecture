@@ -10,12 +10,12 @@ import org.movies.android.testesodexo.ui.R
 
 class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
-    var Movies: List<Movie> = arrayListOf()
+    var movies: List<Movie> = arrayListOf()
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val Movie = Movies[position]
-        holder.nameText.text = Movie.nomeFilme
-        holder.titleText.text = Movie.ano
+        val movie = movies[position]
+        holder.nameText.text = movie.nomeFilme
+        holder.titleText.text = movie.ano
 
        // Glide.with(holder.itemView.context)
        //         .load(Movie.avatar)
@@ -31,18 +31,16 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return Movies.size
+        return movies.size
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
        // var avatarImage: ImageView
-        var nameText: TextView
-        var titleText: TextView
+        var nameText: TextView = view.findViewById(R.id.text_name)
+        var titleText: TextView = view.findViewById(R.id.text_title)
 
         init {
           //  avatarImage = view.findViewById(R.id.image_avatar)
-            nameText = view.findViewById(R.id.text_name)
-            titleText = view.findViewById(R.id.text_title)
         }
     }
 

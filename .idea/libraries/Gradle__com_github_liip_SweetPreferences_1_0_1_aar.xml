@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.liip:SweetPreferences:1.0.1@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/SweetPreferences-1.0.1.aar/4a01cb39b7c16bc4100072b78c350c04/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/SweetPreferences-1.0.1.aar/4a01cb39b7c16bc4100072b78c350c04/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.liip/SweetPreferences/1.0.1/5cf955fc02bbc693031d937594a041f0f9590b54/SweetPreferences-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

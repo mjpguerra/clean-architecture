@@ -2,6 +2,7 @@ package org.movies.android.testesodexo.cache
 
 import android.content.Context
 import android.content.SharedPreferences
+import ch.liip.sweetpreferences.SweetPreferences
 
 
 /**
@@ -9,24 +10,18 @@ import android.content.SharedPreferences
 */
 open class PreferencesHelper(context: Context) {
 
-    companion object {
-        private val PREF_movies_PACKAGE_NAME = "org.movies.android.testesodexo.preferences"
+    private val sweetPreferences: SweetPreferences = SweetPreferences.Builder().withDefaultSharedPreferences(context).build()
 
+    companion object {
         private val PREF_KEY_LAST_CACHE = "last_cache"
     }
 
-    private val moviesPref: SharedPreferences
+    var lastCacheTime: Long by sweetPreferences.delegate(0)
 
     init {
-        moviesPref = context.getSharedPreferences(PREF_movies_PACKAGE_NAME, Context.MODE_PRIVATE)
+
     }
 
 
-    /**
-    * Armazene e recupere a última vez que os dados foram armazenados em cache
-    */
-    var lastCacheTime: Long
-        get() = moviesPref.getLong(PREF_KEY_LAST_CACHE, 0)
-        set(lastCache) = moviesPref.edit().putLong(PREF_KEY_LAST_CACHE, lastCache).apply()
 
 }
