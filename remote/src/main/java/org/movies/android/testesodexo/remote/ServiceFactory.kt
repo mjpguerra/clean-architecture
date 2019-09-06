@@ -12,25 +12,25 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 /**
- * Fornecer métodos "make" para criar instâncias de [MovieService]
+ * Fornecer métodos "make" para criar instâncias de [Service]
  * e suas dependências relacionadas, como OkHttpClient, Gson, etc.
  */
-object MovieServiceFactory {
+object ServiceFactory {
 
-    fun makeBuffeoorService(isDebug: Boolean): MovieService {
+    fun makeBuffeoorService(isDebug: Boolean): Service {
         val okHttpClient = makeOkHttpClient(
                 makeLoggingInterceptor(isDebug))
         return makeMovieService(okHttpClient, makeGson())
     }
 
-    private fun makeMovieService(okHttpClient: OkHttpClient, gson: Gson): MovieService {
+    private fun makeMovieService(okHttpClient: OkHttpClient, gson: Gson): Service {
         val retrofit = Retrofit.Builder()
                 .baseUrl("https://api.trakt.tv/")
                 .client(okHttpClient)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
-        return retrofit.create(MovieService::class.java)
+        return retrofit.create(Service::class.java)
     }
 
     private fun makeOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {

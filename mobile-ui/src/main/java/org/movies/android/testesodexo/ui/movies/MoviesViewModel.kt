@@ -4,9 +4,9 @@ import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import io.reactivex.disposables.Disposable
-import org.movies.android.testesodexo.data.movies.interactor.GetMovies
+import org.movies.android.testesodexo.data.movies.interactor.getMovies
 
-class MoviesViewModel(private val getMovies: GetMovies) : ViewModel() {
+class MoviesViewModel(private val getMovies: getMovies) : ViewModel() {
 
     private val moviesLiveData: MutableLiveData<MoviesState> = MutableLiveData()
     private var disposable: Disposable? = null

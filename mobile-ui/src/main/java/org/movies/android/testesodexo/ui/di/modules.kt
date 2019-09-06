@@ -1,21 +1,20 @@
 package org.movies.android.testesodexo.ui.di
 
 import android.arch.persistence.room.Room
-import ch.liip.sweetpreferences.SweetPreferences
 import org.movies.android.testesodexo.cache.MoviesCacheImpl
 import org.movies.android.testesodexo.cache.PreferencesHelper
 import org.movies.android.testesodexo.cache.db.MoviesDatabase
 import org.movies.android.testesodexo.cache.mapper.MovieEntityMapper
 import org.movies.android.testesodexo.data.MoviesDataRepository
-import org.movies.android.testesodexo.data.movies.interactor.GetMovies
+import org.movies.android.testesodexo.data.movies.interactor.getMovies
 import org.movies.android.testesodexo.data.executor.JobExecutor
 import org.movies.android.testesodexo.data.executor.PostExecutionThread
 import org.movies.android.testesodexo.data.executor.ThreadExecutor
 import org.movies.android.testesodexo.data.repository.MoviesRepository
 import org.movies.android.testesodexo.data.source.MoviesDataStore
 import org.movies.android.testesodexo.data.source.MoviesDataStoreFactory
-import org.movies.android.testesodexo.remote.MoviesRemoteImpl
-import org.movies.android.testesodexo.remote.MovieServiceFactory
+import org.movies.android.testesodexo.remote.Impl.MoviesRemoteImpl
+import org.movies.android.testesodexo.remote.ServiceFactory
 import org.movies.android.testesodexo.ui.BuildConfig
 import org.movies.android.testesodexo.ui.UiThread
 import org.movies.android.testesodexo.ui.movies.MoviesAdapter
@@ -57,7 +56,7 @@ val applicationModule = module(override=true) {
         MovieEntityMapper()
     }
     factory {
-        MovieServiceFactory.makeBuffeoorService(BuildConfig.DEBUG)
+        ServiceFactory.makeBuffeoorService(BuildConfig.DEBUG)
     }
 
     factory<MoviesRepository> {
@@ -67,6 +66,6 @@ val applicationModule = module(override=true) {
 
 val moviesModule = module("movies", override = true) {
     factory { MoviesAdapter() }
-    factory { GetMovies(get(), get(), get()) }
+    factory { getMovies(get(), get(), get()) }
     viewModel { MoviesViewModel(get()) }
 }
